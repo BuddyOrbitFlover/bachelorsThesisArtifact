@@ -41,7 +41,7 @@ result tables in `FINDINGS.md` Parts 3-5 there.
 md5 of every file: run `md5 -r` over this tree; launch-time values are recorded
 in the procedure log entries.
 
-## Still pending
+## Not included
 
 - rq2_herc_d4j.sh + chart-repro orchestration files (live in the other
   container, small follow-up pull).

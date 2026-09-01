@@ -77,7 +77,7 @@ Design rules:
 
 ## Totals
 - **Frame (uncapped): 33 projects, 434 bugs.**
-- **Recommended sample (≤4/project): ~127 bugs → ~50–65 multi-hunk** (paper's ~40–50% multi-hunk fraction) — ≈5× the pilot's 14.
+- **Target sample (≤4/project): ~127 bugs → ~50–65 multi-hunk** (paper's ~40–50% multi-hunk fraction) — ≈5× the pilot's 14.
 - Capped-sample ecosystem balance: Independent 31% · Commons 25% · Apache-other 16% · Jackson 13% · Google 9% · jcabi 6%.
 - **RQ1 (divisibility):** run the pipeline on all sampled bugs.
 - **RQ2 (repair):** census the resulting isolated indivisible multi-hunk set at 5h/bug; stays qualitative.

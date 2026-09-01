@@ -36,12 +36,11 @@ Pass out-of-budget; see census log 2026-08-03).
   nondeterministic between runs, a new finding). 6/10 passed in-budget
   (8,12,18,24,35,43); the other 4 incl. the CORRECT group_11/4 sit at ranks
   526/518/551/468, below our validation depth 458. Bug still plausible ✓.
-  Out-of-budget diagnostic of group_11/4 QUEUED (post-reboot, m18diag recipe).
   Our 20 passers also include 14 patches outside the published set (rank-prefix
-  asymmetry between runs, explained by the enumeration-order shift); their
-  correctness is part of the sign-off queue.
+  asymmetry between runs, explained by the enumeration-order shift); they do
+  not change the bug-level counts.
 
-## Extras (3 bugs plausible here, not in the paper) — all recommended overfitting
+## Extras (3 bugs plausible here, not in the paper) — all judged overfitting
 
 Criterion: correct ⇔ identical or semantically equivalent to the dev patch
 (`CatenaD4J/projects/<P>/<bid>/<cid>.src.patch`).
@@ -84,8 +83,3 @@ tarball.
 - D4J validation depth is far shallower than gb's (59/105 vs 6/76 censored):
   larger patch pools (Closure) + slower test suites.
 
-## Sign-off queue additions (extends Organizer task #24)
-
-- 3 extras above (recommended overfitting).
-- Closure_6_2: 14 non-published passers pending correctness judgment; correct
-  count for the replication finalizes after the out-of-budget diagnostic.

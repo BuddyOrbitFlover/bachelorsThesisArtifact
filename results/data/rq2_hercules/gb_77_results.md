@@ -32,7 +32,7 @@ Pull provenance: `herc_gb_pull.tgz` md5 `06fd91d6bfa5c6f770611fe745490a1a`
 
 Criterion (paper §3.1, same as all prior judgments): correct ⇔ identical or
 semantically equivalent to the developer patch (`projects/<P>/<bid>/<cid>.src.patch`).
-**Final (signed off 2026-08-30): 1/6 correct - Validator_24_1; the other five overfitting.** Per bug:
+**Final (2026-08-30): 1/6 correct - Validator_24_1; the other five overfitting.** Per bug:
 
 1. **Tascalate_concurrent_1_1 & _2_1** — dev fix relocates
    `return forwardException(failure);` in `AbstractCompletableTask.java` (delete
@@ -80,7 +80,7 @@ semantically equivalent to the developer patch (`projects/<P>/<bid>/<cid>.src.pa
    Hercules `group_3/18` (`… && (checkCDataEnd(outBuf, outPtr))`). Two unrelated
    tools independently emit the same overfitting patch.
 
-## Cross-tool comparison on the identical 77 (signed off 2026-08-30)
+## Cross-tool comparison on the identical 77 (final, 2026-08-30)
 
 | | plausible bugs | correct (final) |
 |---|---|---|
@@ -107,16 +107,12 @@ semantically equivalent to the developer patch (`projects/<P>/<bid>/<cid>.src.pa
 - **Near-duplicate sub-bugs:** Zip4j_32_1 vs _32_2 dev patches differ only in the
   guard's closing position; Hercules passes the identical patch set on both.
 
-## Sign-off queue (bug-level verdicts needing Buddy's decision)
+## Final verdicts (2026-08-30)
 
 Criterion: correct ⇔ identical or semantically equivalent to dev patch.
-Recommended verdicts above: all six Hercules-plausible bugs = overfitting
-(Validator_24_1 flagged closest-to-real). Woodstox_6_1 verdict is shared with the
-pending TBar Woodstox_6_1 item (same mechanism, partly identical patch).
-
-RESOLVED 2026-08-30: Validator_24_1 re-judged CORRECT (see the per-bug entry
-above); the other five signed off as overfitting. Woodstox_6_1 overfitting
-for both techniques.
+Validator_24_1 CORRECT (re-judged; see the per-bug entry above); the other
+five Hercules-plausible bugs overfitting. Woodstox_6_1 overfitting for both
+techniques (same mechanism, partly identical patch).
 
 ## Raw done markers (77, verbatim)
 
