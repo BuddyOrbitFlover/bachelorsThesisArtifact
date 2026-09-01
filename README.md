@@ -403,7 +403,7 @@ wrote generated/numbers.tex
 The artifact is published on GitHub: repository
 https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact. To obtain it:
 `git clone https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact.git`.
-The thesis appendix names the commit that corresponds to the submitted thesis.
+The thesis appendix names the release that corresponds to the submitted thesis (`v1.0`).
 
 ## Attribution and AI use
 
