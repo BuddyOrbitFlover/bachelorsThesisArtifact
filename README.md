@@ -409,12 +409,8 @@ The thesis appendix names the commit that corresponds to the submitted thesis.
 
 ## Attribution and AI use
 
-The Python pipeline (CatenaD4J / IBugFinder) and the TBar harness are the subject paper
-authors' work and were run unchanged except for the changes shipped in `code/patches/`. The bash orchestration, monitoring, and diagnosis scripts in
-`code/scripts/` and `reproduce.py` were written with the help of Claude Code (Anthropic)
-under the author's direction; every execution, every judgment of patch correctness, and
-every methodological decision is the author's. Cite the thesis and the subject paper when
-reusing this material.
+During the preparation of this work, the author used Claude Code and Gemini to draft content and to improve writing style, sentence structure, wording, and grammar. Claude Code was additionally used, under the author's direction, to draft the pipeline scripts, the analysis script, the toolchain adaptations, and this README.
+No AI tool executed an experiment or took a methodological decision. After using these tools, the author reviewed and edited all content as needed and takes full responsibility for the content of this thesis.
 
 ## License
 
