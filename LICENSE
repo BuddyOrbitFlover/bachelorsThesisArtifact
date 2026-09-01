@@ -8,7 +8,7 @@ Author: Kanghyun Lee, LMU Munich (bachelor thesis, 2026).
    Licensed under the MIT License (text below).
 
 2. Documentation and result data produced by this study
-   README.md, documentation/**, results/data/**, results/raw-evidence/**
+   README.md, results/data/**, results/raw-evidence/**
    (run logs, result markers, generated patches, verdict tables, notes)
    Licensed under the Creative Commons Attribution 4.0 International
    License (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/

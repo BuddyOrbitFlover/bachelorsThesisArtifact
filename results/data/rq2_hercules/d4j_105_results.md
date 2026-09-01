@@ -68,7 +68,7 @@ newer JDK flips borderline bugs).
 **46/105 fully validated, 59/105 validation-censored** at the 300-min budget
 (vs gb: 70/76 full, 6 censored). Closure dominates (36 of 59). 51 of the 84
 non-plausible bugs carry within-budget verdicts (unvalidated tail exists);
-8 of the 21 plausible bugs are censored (passer counts may understate).
+10 of the 21 plausible bugs are censored (passer counts may understate).
 Direction of bias: plausible counts can only be understated. The paper's runs
 share the identical protocol property; comparison remains apples-to-apples.
 Full table reproducible from `results/*.txt` vs `rank.txt` in each patches

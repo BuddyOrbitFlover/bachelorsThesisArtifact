@@ -21,8 +21,8 @@ divisibility finding hold on 249 multi-hunk bugs from 60 growingBugs projects th
 Defects4J does not contain? RQ2, does the repair finding hold on 97 isolated indivisible
 multi-hunk bugs created from growingBugs-new bugs?
 
-Artifact version 1.1 (2026-08-28), published as a GitHub release of
-https://github.com/BuddyOrbitFlover/thesis_artifact (see "Publication").
+Published at https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact
+(2026-09-01, see "Publication").
 
 ## Contents
 
@@ -49,12 +49,6 @@ README.md, LICENSE, SHA256SUMS      this file, licensing, checksums of every fil
 reproduce.py                        recomputes every table and number (Python 3.8+, no dependencies)
 make_archive.sh                     rebuilds SHA256SUMS and the zip archive
 generated/numbers.tex               LaTeX macros written by `reproduce.py tex`
-documentation/
-  METHODOLOGY.md                    study design, selection rules, protocol, deviations, threats
-  FINDINGS.md                       all results with per-bug reasoning (thesis chapter 4 source)
-  PIPELINE_RUNBOOK.md               exact commands from a raw growingBugs bug to a judged verdict
-  BUG_FIX_LEDGER.md                 every tool failure met during the study and its fix
-  code_fixes_explained.md           the code-level corrections, explained per tool
 code/
   scripts/                          orchestration, monitoring and analysis scripts written for the study
   scripts/scale105/                 the exact run scripts of the final campaigns (md5 recorded in the log)
@@ -85,15 +79,15 @@ JVMs at `ActiveProcessorCount=5`). Budgets are the paper's: isolation 1 h per bu
 
 ### Installation
 
-None for Section 5. Unpack the archive and enter the directory:
+None for Section 5. Clone the repository and enter the directory:
 
 ```
-unzip imh-bugs-external-validity-artifact-v1.1.zip -d artifact
-cd artifact
+git clone https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact.git
+cd bachelorsThesisArtifact
 ```
 
-For Sections 3 and 4, `documentation/PIPELINE_RUNBOOK.md` section 0 lists the one-time
-setup of the benchmark, the containers and the tools; `code/patches/*.diff` and
+For Sections 3 and 4, set up the benchmark, the containers and the tools as described
+in the thesis (chapter 3); `code/patches/*.diff` and
 `code/tbar_patched_sources*/` are the changes to apply to the paper's tools.
 
 ### First run
@@ -117,8 +111,6 @@ The script should output the following (only timings may differ):
    [ok] results/raw-evidence/scale105/census/rq2c_results.tgz
    [ok] results/raw-evidence/scale105/hercules/herc_d4j_pull.tgz
    [ok] results/raw-evidence/scale105/sm06_pull_20260813/evidence_pull_20260813.tgz
-   [ok] documentation/FINDINGS.md
-   [ok] documentation/PIPELINE_RUNBOOK.md
    [ok] LICENSE
    [ok] README.md
    headline: RQ1 150/77/22 of 249 (60.2 % divisible among all, 66.1 % among determined); RQ2 TBar 12/97 plausible, Hercules 6/97; Hercules D4J 21/105
@@ -127,7 +119,7 @@ CHECK PASSED
 ```
 
 `python3 reproduce.py verify` additionally checks every file of the bundle against
-`SHA256SUMS` and ends with `1927 files checked, 0 mismatches -> OK`.
+`SHA256SUMS` and ends with `1907 files checked, 0 mismatches -> OK`.
 
 ## 2. Example task
 
@@ -153,8 +145,8 @@ the example:
 ```
 
 To see how such a verdict is produced from a raw growingBugs bug (isolation, isolation
-check, fault localization, repair, judgment), follow `documentation/PIPELINE_RUNBOOK.md`
-sections 1 to 8; the scripts it calls are in `code/scripts/`. The expected outputs of the
+check, fault localization, repair, judgment), see the protocol in the thesis
+(chapter 3); the scripts are in `code/scripts/`. The expected outputs of the
 example are the files of `results/raw-evidence/gb/` for the five pilot isolated bugs.
 
 ## 3. Running the exemplary benchmark set
@@ -166,9 +158,9 @@ artifact. The study's own produced data are in `results/raw-evidence/` and are u
 analysis of Section 5.
 
 The exemplary benchmark set is the pilot: 10 growingBugs projects with 26 bugs, listed in
-`results/raw-evidence/gb/stage5/2toMore` (multi-hunk bugs) and in Table 3.2 of the
+`results/raw-evidence/gb/stage5/2toMore` (multi-hunk bugs) and in Table 3.1 of the
 thesis. To run it, set up the tools as in
-Section 1 and follow `documentation/PIPELINE_RUNBOOK.md` with that bug list; the divisibility
+Section 1 and run the pipeline stages with that bug list; the divisibility
 stage takes about one day on 8 cores, the repair stage up to 5 h per isolated bug.
 
 The expected outcome is the pilot part of the RQ1 and RQ2 outputs in Section 5:
@@ -219,9 +211,9 @@ commands below run the parts individually; the expected outputs are in "Full Log
 | Claims about individual plausible patches (Jfreesvg_1_1 and JacksonDatabind_135_2 correct for TBar, Validator_24_1 for Hercules; the others overfitting) | `python3 reproduce.py plausible` | 12 TBar and 6 Hercules bugs with their judgments |
 | Claim "the four Validator_24_1 Hercules patches are semantically equivalent to the developer patch" (Section 4.3) | `python3 code/difftest_validator.py` | 0 disagreements on 300 000 inputs for each of the four patches; buggy vs. developer patch disagree on 3 |
 | Table "Results at a glance" | `python3 reproduce.py summary` | the rows of the thesis table |
-| Unknown-bug reasons (22 unknown RQ1 bugs: 13 generator timeouts, 6 test-run timeouts, 3 split-test compile failures) | `results/data/gb_rerun/census_b/*_verdict.txt` (note column), `results/raw-evidence/gb/stage5/exceptions/`, `results/raw-evidence/scale105/census/census_exceptions.tgz`, FINDINGS 3.1 to 3.3 | one EXCEPTION file per unknown bug with the traceback |
+| Unknown-bug reasons (22 unknown RQ1 bugs: 13 generator timeouts, 6 test-run timeouts, 3 split-test compile failures) | `results/data/gb_rerun/census_b/*_verdict.txt` (note column), `results/raw-evidence/gb/stage5/exceptions/`, `results/raw-evidence/scale105/census/census_exceptions.tgz` | one EXCEPTION file per unknown bug with the traceback |
 | The two further isolation runs of the repair set (26 and 63 multi-hunk bugs) | `results/data/gb_rerun/s5/s5_stage5_verdicts.csv`, `results/data/gb_rerun/s6/s6_stage5_verdicts.csv`; raw: `results/raw-evidence/scale105/sm06_pull_20260813/` (S5) and `results/raw-evidence/scale105/s6/` (S6, `RECOUNT.md`) | S5 8 div / 12 indiv / 1 single / 5 unknown; S6 21 / 15 / 27 |
-| Tooling findings (chapter 3 adaptations, chapter 5) | `documentation/BUG_FIX_LEDGER.md`, `code/patches/*.diff`, `code/tbar_patched_sources*/` | each failure with its fix and the diff |
+| Tooling findings (chapter 3 adaptations, chapter 5) | `code/patches/*.diff`, `code/tbar_patched_sources*/` | each failure with its fix and the diff |
 | The individual patches behind every plausible count | `results/raw-evidence/*/RESULTS_*/fixed/<bug>/` (TBar) and `results/raw-evidence/scale105/hercules/*.tgz` (`RESULTS_HERC*/patches`, `results/<bug>.txt`) | patch files; `:Pass` lines mark plausible Hercules patches |
 | LaTeX macros with the headline numbers | `python3 reproduce.py tex` | writes `generated/numbers.tex` |
 
@@ -242,9 +234,8 @@ reports the total only, the per-step lines are provenance.
 
 ### Provenance of the raw evidence
 
-`results/raw-evidence/` is the evidence repository
-https://github.com/BuddyOrbitFlover/imh-bugs-external-validity-evidence at commit f34d356,
-pulled from the host in passes on 2026-07-06, 2026-07-14, 2026-07-24 (pilot, RQ1 re-run,
+`results/raw-evidence/` is the study's evidence collection at commit `f34d356` of the
+author's internal evidence repository, pulled from the host in passes on 2026-07-06, 2026-07-14, 2026-07-24 (pilot, RQ1 re-run,
 RQ2 re-run; `d4j/`, `gb/`, `gb_rerun/`, `supplement/`), 2026-08-13 to 2026-08-15 (`scale105/`:
 the census TBar run, all Hercules runs, the GB4 and GB5 runs, and a 1 282-file host pull
 with every stage output, fault-localization ranking and run script), and 2026-08-28
@@ -276,8 +267,6 @@ This section contains the full log output for each of the commands named above, 
    [ok] results/raw-evidence/scale105/census/rq2c_results.tgz
    [ok] results/raw-evidence/scale105/hercules/herc_d4j_pull.tgz
    [ok] results/raw-evidence/scale105/sm06_pull_20260813/evidence_pull_20260813.tgz
-   [ok] documentation/FINDINGS.md
-   [ok] documentation/PIPELINE_RUNBOOK.md
    [ok] LICENSE
    [ok] README.md
    headline: RQ1 150/77/22 of 249 (60.2 % divisible among all, 66.1 % among determined); RQ2 TBar 12/97 plausible, Hercules 6/97; Hercules D4J 21/105
@@ -403,30 +392,25 @@ wrote generated/numbers.tex
 
 - `python3 reproduce.py verify`
 ```
-   1927 files checked, 0 mismatches -> OK
+   1907 files checked, 0 mismatches -> OK
 ```
 
 ## Integrity
 
 `SHA256SUMS` lists every file of the bundle; `python3 reproduce.py verify` checks them.
-`make_archive.sh` regenerates the list and the zip archive and prints the archive's
-SHA-256, which is recorded in the notes of the GitHub release.
+`make_archive.sh` regenerates the list.
 
 ## Publication
 
 The artifact is published on GitHub: repository
-https://github.com/BuddyOrbitFlover/thesis_artifact, tag `v1.1`, with
-`imh-bugs-external-validity-artifact-v1.1.zip` attached to the release of that tag and
-the archive's SHA-256 stated in the release notes. To obtain it: download the zip from the
-release page, or `git clone --branch v1.1 https://github.com/BuddyOrbitFlover/thesis_artifact.git`.
-The thesis appendix names the same tag. Version 1.0 (2026-08-27) differs only by the S6
-raw results and this README.
+https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact. To obtain it:
+`git clone https://github.com/BuddyOrbitFlover/bachelorsThesisArtifact.git`.
+The thesis appendix names the commit that corresponds to the submitted thesis.
 
 ## Attribution and AI use
 
 The Python pipeline (CatenaD4J / IBugFinder) and the TBar harness are the subject paper
-authors' work and were run unchanged except for the fixes listed in `BUG_FIX_LEDGER.md` and
-`code/patches/`. The bash orchestration, monitoring, and diagnosis scripts in
+authors' work and were run unchanged except for the changes shipped in `code/patches/`. The bash orchestration, monitoring, and diagnosis scripts in
 `code/scripts/` and `reproduce.py` were written with the help of Claude Code (Anthropic)
 under the author's direction; every execution, every judgment of patch correctness, and
 every methodological decision is the author's. Cite the thesis and the subject paper when
@@ -436,7 +420,7 @@ reusing this material.
 
 Scripts written for this study (`code/scripts/**`, `reproduce.py`, `make_archive.sh`) are
 licensed under the MIT License; documentation and result data (`README.md`,
-`documentation/**`, `results/**`) under the Creative Commons Attribution 4.0 International
+`results/**`) under the Creative Commons Attribution 4.0 International
 License; `code/patches/**` and `code/tbar_patched_sources*/**` are modifications of the
 subject paper's tools and remain under their upstream licenses. Copyright 2026 Kanghyun Lee.
 The full text is in `LICENSE`.

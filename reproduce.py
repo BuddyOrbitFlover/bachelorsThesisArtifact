@@ -262,7 +262,7 @@ def t_check():
             'results/data/gb_rerun/census_b/rq2_final_judgments.csv', 'results/raw-evidence/d4j/RESULTS_rem/done',
             'results/raw-evidence/gb/RESULTS_GB/fixed/Jfreesvg_1_1', 'results/raw-evidence/scale105/census/rq2c_results.tgz',
             'results/raw-evidence/scale105/hercules/herc_d4j_pull.tgz', 'results/raw-evidence/scale105/sm06_pull_20260813/evidence_pull_20260813.tgz',
-            'documentation/FINDINGS.md', 'documentation/PIPELINE_RUNBOOK.md', 'LICENSE', 'README.md']
+            'LICENSE', 'README.md']
     ok = True
     for f in need:
         e = os.path.exists(P(ROOT, f)); ok &= e; print('   [%s] %s' % ('ok' if e else 'MISSING', f))
