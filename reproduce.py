@@ -123,7 +123,7 @@ def rq1_counts(deep=False):
     return arms, tot
 
 # ----------------------------------------------------------------- RQ0
-RQ0_DIV_RECORD = {  # FINDINGS Part 1 (the on-host statstics CSVs were wiped by clean.sh; only Time survives raw)
+RQ0_DIV_RECORD = {  # recorded off-host before the paper artifact's clean.sh wiped the on-host statstics CSVs; only Time survives raw
     'Chart': ((10, 3, 7, 22, 0), (10, 3, 7, 22, 0)), 'Closure': ((53, 48, 42, 38, 12), (52, 48, 41, 38, 13)),
     'Lang': ((22, 17, 19, 20, 1), (22, 17, 20, 20, 1)), 'Math': ((40, 25, 23, 38, 4), (38, 26, 20, 38, 6)),
     'Mockito': ((6, 16, 3, 19, 3), (5, 17, 2, 19, 3)), 'Time': ((11, 7, 14, 7, 1), (12, 7, 15, 7, 1))}
@@ -142,7 +142,7 @@ PAPER = {'tbar': (20, 4), 'herc': (19, 2), 'div': (139, 118, 105, 144, 24)}
 # -------------------------------------------------------------- output
 def t_rq0_div():
     print('== RQ0, Part 1: divisibility on Defects4J (281 multi-hunk bugs). Div/InDiv/Iso/Single/Ukn')
-    print('   Record: FINDINGS Part 1 (the paper artifact\'s clean.sh wiped the on-host CSVs; only Time is recounted raw).')
+    print('   Record: RQ0_DIV_RECORD in this script (the paper artifact\'s clean.sh wiped the on-host CSVs; only Time is recounted raw).')
     S = [0] * 5; SP = [0] * 5
     for p, (ours, paper) in RQ0_DIV_RECORD.items():
         S = [a + b for a, b in zip(S, ours)]; SP = [a + b for a, b in zip(SP, paper)]
@@ -159,7 +159,7 @@ def t_rq0_repair():
     print('   TBar 1 h pass (44 bugs): done %d, plausible %d %s' % (a[0], len(a[1]), a[1]))
     print('   TBar 5 h pass (40 bugs): done %d, plausible %d %s' % (b[0], len(b[1]), b[1]))
     print('   TBar Closure+Lang 5 h (61 bugs): done %d, plausible %d %s' % (c[0], len(c[1]), c[1]))
-    print('   TBar total: %d/105 bugs with a plausible patch (paper 20); 19 of the paper\'s 20 reproduced; correct 3 (paper 4), all identical to the published patches (FINDINGS 2.6-2.7)' % tot)
+    print('   TBar total: %d/105 bugs with a plausible patch (paper 20); 19 of the paper\'s 20 reproduced; correct 3 (paper 4), all identical to the published patches' % tot)
     h = herc_all()['D4J-105']
     print('   Hercules: done %d/105, bugs with a passing patch %d (paper 19); 18 of the paper\'s 19 matched; correct: Chart_18_2 identical, Closure_6_2 validation-censored' % (h[0], len(h[1])))
 
@@ -236,7 +236,7 @@ def t_summary():
 def t_plausible():
     tb = tbar_all(); hc = herc_all()
     j = {r['bug']: r for r in csv.DictReader(open(P(DATA, 'gb_rerun', 'census_b', 'rq2_final_judgments.csv')))}
-    print('== Plausible isolated bugs on growingBugs-new (judgment: data/gb_rerun/census_b/rq2_final_judgments.csv, FINDINGS 4.3, 4.6.3)')
+    print('== Plausible isolated bugs on growingBugs-new (judgment: data/gb_rerun/census_b/rq2_final_judgments.csv)')
     hp = {}; [hp.update(hc[k][1]) for k in ('gb-77', 'GB4', 'GB5')]
     for k, (_, p) in tb.items():
         for b in p:

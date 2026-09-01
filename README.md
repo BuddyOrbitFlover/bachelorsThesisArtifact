@@ -226,7 +226,7 @@ determined and the determination rate. A TBar isolated bug is plausibly repaired
 (`*_PartiallyFixedBugs` patches are not plausible); a Hercules isolated bug is plausibly
 repaired when its `results/<bug>.txt` contains at least one `:Pass` line. A patch is correct
 when it is identical or semantically equivalent to the developer patch; the judgments are in
-`results/data/gb_rerun/census_b/rq2_final_judgments.csv` and FINDINGS 5.5.
+`results/data/gb_rerun/census_b/rq2_final_judgments.csv`; the thesis appendix gives a one-line reason per judgment.
 
 The output of `reproduce.py rq1` lists the four steps in which the population was
 assembled (pilot, pre-registered run, census, small projects) before the total; the thesis
@@ -244,16 +244,14 @@ with every stage output, fault-localization ranking and run script), and 2026-08
 2026-08-06; `reproduce.py rq1 --deep` recounts
 them from the per-bug files.
 
-Known gaps: (1) The Defects4J divisibility statistics CSVs of five projects were deleted by
-the paper artifact's `clean.sh` after they had been recorded; the table in FINDINGS Part 1
-is the record, and the surviving Time CSV matches its row. (2) Correctness judgments marked
-"recommended" in `rq2_final_judgments.csv` and FINDINGS 5.5 await the author's final
-sign-off.
+Known gap: the Defects4J divisibility statistics CSVs of five projects were deleted by
+the paper artifact's `clean.sh` after they had been recorded; `RQ0_DIV_RECORD` in
+`reproduce.py` is the record, and the surviving Time CSV matches its row.
 
 ## Full Logs
 
 This section contains the full log output for each of the commands named above, as run on
-2026-08-28 on the final bundle.
+2026-09-01 on the final bundle.
 
 - `python3 reproduce.py check`
 ```
@@ -277,7 +275,7 @@ CHECK PASSED
 - `python3 reproduce.py rq0-div`
 ```
 == RQ0, Part 1: divisibility on Defects4J (281 multi-hunk bugs). Div/InDiv/Iso/Single/Ukn
-   Record: FINDINGS Part 1 (the paper artifact's clean.sh wiped the on-host CSVs; only Time is recounted raw).
+   Record: RQ0_DIV_RECORD in this script (the paper artifact's clean.sh wiped the on-host CSVs; only Time is recounted raw).
    Chart    this study 10/3/7/22/0        paper 10/3/7/22/0
    Closure  this study 53/48/42/38/12     paper 52/48/41/38/13
    Lang     this study 22/17/19/20/1      paper 22/17/20/20/1
@@ -296,7 +294,7 @@ CHECK PASSED
    TBar 1 h pass (44 bugs): done 44, plausible 4 ['Chart_18_2', 'Chart_22_4', 'Chart_25_3', 'Chart_2_5']
    TBar 5 h pass (40 bugs): done 40, plausible 7 ['Math_12_1', 'Math_18_1', 'Math_28_1', 'Math_28_2', 'Math_28_3', 'Time_12_1', 'Time_12_3']
    TBar Closure+Lang 5 h (61 bugs): done 61, plausible 11 ['Closure_106_2', 'Closure_138_1', 'Closure_141_2', 'Closure_22_1', 'Closure_84_1', 'Lang_30_1', 'Lang_41_1', 'Lang_41_2', 'Lang_41_3', 'Lang_50_1', 'Lang_50_2']
-   TBar total: 22/105 bugs with a plausible patch (paper 20); 19 of the paper's 20 reproduced; correct 3 (paper 4), all identical to the published patches (FINDINGS 2.6-2.7)
+   TBar total: 22/105 bugs with a plausible patch (paper 20); 19 of the paper's 20 reproduced; correct 3 (paper 4), all identical to the published patches
    Hercules: done 105/105, bugs with a passing patch 21 (paper 19); 18 of the paper's 19 matched; correct: Chart_18_2 identical, Closure_6_2 validation-censored
 ```
 
@@ -356,7 +354,7 @@ CHECK PASSED
 
 - `python3 reproduce.py plausible`
 ```
-== Plausible isolated bugs on growingBugs-new (judgment: data/gb_rerun/census_b/rq2_final_judgments.csv, FINDINGS 4.3, 4.6.3)
+== Plausible isolated bugs on growingBugs-new (judgment: data/gb_rerun/census_b/rq2_final_judgments.csv)
    TBar     Jfreesvg_1_1                 pilot      Hercules passers: 0   judgment: correct (identical to the developer patch)
    TBar     Woodstox_6_1                 re-run     Hercules passers: 47  judgment: overfitting
    TBar     Dagger_core_13_1             census     Hercules passers: 0   judgment: overfitting
