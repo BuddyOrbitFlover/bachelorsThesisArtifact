@@ -407,7 +407,7 @@ The thesis appendix names the release that corresponds to the submitted thesis (
 
 ## Used Aids
 
-During the preparation of this work, the author used Claude Code and Gemini to draft content and to improve writing style, sentence structure, wording, and grammar. Claude Code was additionally used, under the author's direction, to draft the pipeline scripts, the analysis script, the toolchain adaptations, and this README.
+During the preparation of this work, the author used Claude Code and Gemini to draft content and to improve writing style, sentence structure, wording, and grammar. Claude Code was additionally used, under the author's direction, to draft the pipeline scripts, the analysis script, the toolchain adaptations, and READMEs.
 No AI tool executed an experiment or took a methodological decision. After using these tools, the author reviewed and edited all content as needed and takes full responsibility for the content of this thesis.
 
 ## License
